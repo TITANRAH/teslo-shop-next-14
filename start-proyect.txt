@@ -1,0 +1,3 @@
+instalar https://react-icons.github.io/react-icons/
+
+siempre rafc y el primero para crear componentes
