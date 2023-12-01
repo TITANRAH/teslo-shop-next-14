@@ -8,3 +8,9 @@ npm i zustand
 
 paquete para condicionar clases
  npm install clsx
+
+para swiper 
+npm install swiper
+
+https://swiperjs.com/
+https://swiperjs.com/demos
