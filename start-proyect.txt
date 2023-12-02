@@ -14,3 +14,33 @@ npm install swiper
 
 https://swiperjs.com/
 https://swiperjs.com/demos
+
+para correr contenedor postgres
+docker compose up -d
+
+instalar prisma npm install prisma --save-dev
+npx prisma init --datasource-provider PostgreSQL
+https://www.prisma.io/docs/getting-started/quickstart
+
+una vez creados los modelos hacer la migracion
+npx prisma migrate dev --name ProductCategory 
+se creara la carpeta migracion
+
+para ejecutar codigo de ts en node 
+paquete para solo desarrollo
+ npm i -D ts-node
+
+crear el script de seed en el package
+"seed": "ts-node src/seed/seed-database.ts"
+pero esto no basta
+hay que ir a la carpeta de seed e instalar un ts.config.json
+posicionandose con la consola en la carpeta y corriendo el comando
+npx tsc --init
+luego correr el npm run seed 
+
+para crear cliente npx prisma generate
+
+o bien ir a https://www.prisma.io/docs/guides/other/troubleshooting-orm/help-articles/nextjs-prisma-client-dev-practices 
+
+y copiar las mejores practicas para alojar el trozo de codigo 
+en lib prisma.ts
