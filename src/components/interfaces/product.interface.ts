@@ -1,5 +1,6 @@
 export interface Product {
-    // todo: id
+  // descomentar cuando ya la bd traiga el id cuando ya este generada la bd
+    id: string;
     description: string;
     images: string[];
     inStock: number;
@@ -8,7 +9,8 @@ export interface Product {
     slug: string;
     tags: string[];
     title: string;
-    type: Type;
+    // type: Type;
+    //todo :type
     gender: Category;
   }
   

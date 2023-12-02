@@ -34,11 +34,14 @@ crear el script de seed en el package
 "seed": "ts-node src/seed/seed-database.ts"
 pero esto no basta
 hay que ir a la carpeta de seed e instalar un ts.config.json
-posicionandose con la consola en la carpeta y corriendo el comando
+posicionandose con la consola en la carpeta seed y corriendo el comando
 npx tsc --init
 luego correr el npm run seed 
 
-para crear cliente npx prisma generate
+para crear cliente prisma : npx prisma generate
+
+luego hacer las inserciones de la data que esta en duro 
+
 
 o bien ir a https://www.prisma.io/docs/guides/other/troubleshooting-orm/help-articles/nextjs-prisma-client-dev-practices 
 

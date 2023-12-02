@@ -37,6 +37,7 @@ model Category {
 
 model Product {
   id          String   @id @default(uuid())
+  title       String
   description String
   inStock     Int
   price       Float    @default(0)
@@ -52,10 +53,10 @@ model Product {
   // ahora puedo hacer la migracion esto impactara la base de datos
   // esto no crea una columna llamada category solo crea la relacion 
   // el dato que tendra la relacion con la tabla Category es categoryId
-  
+
   // relaciones
-  category     Category       @relation(fields: [categoryId], references: [id])
-  categoryId   String
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId String
 
   ProductImage ProductImage[]
 
