@@ -1,7 +1,8 @@
-import Link from "next/link";
+'use client'
+
 import { PageNotFound } from '@/components';
 
-export default function NotFoundProductPage() {
+export default function ErrorPage() {
   return (
     <div>
         <PageNotFound/>

@@ -47,3 +47,13 @@ o bien ir a https://www.prisma.io/docs/guides/other/troubleshooting-orm/help-art
 
 y copiar las mejores practicas para alojar el trozo de codigo 
 en lib prisma.ts
+
+$quot para colocar comillas entre comillas &quot
+
+revalidate 
+https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+
+
+customizar los enlaces de url metadata 
+
+https://nextjs.org/docs/app/building-your-application/optimizing/metadata

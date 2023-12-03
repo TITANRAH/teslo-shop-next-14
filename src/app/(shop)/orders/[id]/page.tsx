@@ -16,8 +16,7 @@ interface Props {
   };
 }
 
-// eslint-disable-next-line import/no-anonymous-default-export, react/display-name
-export default function ({ params }: Props) {
+export default function OrdersIdPage({ params }: Props) {
   const { id } = params;
 
   //todo verificar id si corresponde al usuario logueado
