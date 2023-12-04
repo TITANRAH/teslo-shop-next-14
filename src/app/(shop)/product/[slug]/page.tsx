@@ -6,6 +6,7 @@ import { titleFont } from "@/config/fonts";
 import { Metadata, ResolvingMetadata } from "next";
 // import { initialData } from "@/seed/seed";
 import { notFound } from "next/navigation";
+import { AddToCart } from './ui/AddToCart';
 
 // me envian el slug al punchar un producto lo recibo y busco en la data el producto
 interface Props {
@@ -80,22 +81,7 @@ export default async function ProductSlugPage({params}: Props) {
         <h1 className={`${titleFont.className   }`}>{product.title}</h1>
         <p className="tex-lg mb-5">${product.price}</p>
 
-        {/* selector de tallas  */}
-        <SizeSelector
-        selectedSize={product.sizes[0]}
-        availableSize={product.sizes}
-        />
-      
-        {/* selector de cantidad  */}
-        <QuantitySelector
-        quantity={2}
-        />
-
-        {/* buton */}
-
-        <button className="btn-primary my-5">
-            Agregar al Carrito
-        </button>
+        <AddToCart product={product}/>
 
         {/* descripcion */}
         <h3 className="font-bold text-sm">Descripción</h3>

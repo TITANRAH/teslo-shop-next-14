@@ -1,3 +1,6 @@
+
+'use server'
+
 export const getProductBySlug = async (slug: string) => {
   try {
     const product = await prisma?.product.findFirst({
