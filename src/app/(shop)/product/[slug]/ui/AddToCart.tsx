@@ -1,7 +1,8 @@
 "use client";
 
 import { QuantitySelector, SizeSelector } from "@/components";
-import { Product, Size } from "@/components/interfaces";
+import { CartProduct, Product, Size } from "@/components/interfaces";
+import { useCartStore } from "@/store";
 
 import { useState } from "react";
 
@@ -10,6 +11,10 @@ interface Props {
 }
 
 export const AddToCart = ({ product }: Props) => {
+
+  // llamamos a la funcion a la referencia de la funcion
+  const addProductToCart = useCartStore(state => state.addProductToCart)
+
   const [sizeState, setSize] = useState<Size | undefined>();
   const [quantityState, setQuantity] = useState<number>(1);
   const [posted, setPosted] = useState(false);
@@ -19,7 +24,23 @@ export const AddToCart = ({ product }: Props) => {
     if (!sizeState) return;
     console.log({ sizeState, quantityState, product });
 
+    // preparo el producto que enviare al carrito
+    const cartProduct: CartProduct = {
+      id: product.id,
+      slug: product.slug ,
+      title: product.title,
+      price: product.price,
+      quantity: quantityState,
+      size: sizeState,
+      image: product.images[0]
+    }
+
+    console.log('producto por adherir al cart -> ', cartProduct);
     // todo add to cart
+    addProductToCart(cartProduct)
+    setPosted(false)
+    setQuantity(1)
+    setSize(undefined)
   };
 
   return (
