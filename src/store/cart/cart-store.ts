@@ -7,12 +7,24 @@ interface State {
 
   getTotalItems: () => number;
 
+  // comento la funcion me posiciono en la funcion de abajo copio y pego aca 
+  // para decir que es lo que devuelve la funcion
+  getSummaryInformation: () => {
+    subTotal: number;
+    tax: number;
+    total: number;
+    itemsInCart: number;
+};
+
   // addProductToCart
 
   addProductToCart: (product: CartProduct) => void;
+
   // updateProductQuantit
-  // addProductToCart
+  updateProductQuantity: (product: CartProduct, quantity: number) => void;
+  
   // removeproduct
+  removeProduct: (product: CartProduct) => void;
 }
 
 export const useCartStore = create<State>()(
@@ -42,6 +54,29 @@ export const useCartStore = create<State>()(
         // y lo suma 3 mas 1 = 4 ahora mi total va en 4 y asi sucesivamente
        
         return cart.reduce((total, items) => total + items.quantity, 0)
+      },
+
+      getSummaryInformation: ()=> {
+        const {cart } = get();
+
+        const subTotal = cart.reduce((subTotal, product) => (product.quantity * product.price)  + subTotal, 0)
+      
+        const tax = subTotal * 0.15;
+
+        const total = subTotal + tax;
+
+        const itemsInCart = cart.reduce((total, items) => total + items.quantity, 0)
+
+
+        return {
+          subTotal,
+          tax,
+          total,
+          itemsInCart,
+        }
+
+
+      
       },
 
       addProductToCart: (product: CartProduct) => {
@@ -74,7 +109,37 @@ export const useCartStore = create<State>()(
 
         set({ cart: updateCartProducts });
       },
+
+      // obtengo el producto y la cantidad
+      updateProductQuantity: (product: CartProduct, quantity: number) => {
+      //  llamo al sate de cart 
+        const { cart } = get();
+
+        // funcion para actualizar
+
+        // si iteem.id es igual aproduct .id y lo mismo pero size actualiza ese producto y retorna 
+        const updatedCartProducts = cart.map(item => {
+          if(item.id === product.id && item.size === product.size){
+            return {...item, quantity: quantity}
+          }
+          return item;
+        });
+
+        set({cart: updatedCartProducts});
+
+
+      },
+
+      removeProduct: (product: CartProduct) => {
+        const { cart } = get();
+
+        const removedCart = cart.filter((p)=> p.id !== product.id || p.size !== product.size);
+
+        set({cart: removedCart})
+      },
     }),
+
+
     {
       name: "shopping-cart",
     }
