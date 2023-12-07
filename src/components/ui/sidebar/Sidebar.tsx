@@ -1,5 +1,6 @@
 "use client";
 
+import { logout } from "@/actions";
 import { useUIStore } from "@/store";
 import clsx from "clsx";
 import Link from "next/link";
@@ -28,10 +29,10 @@ export const Sidebar = () => {
 
       {/* blur */}
       {isSideMenuOpen && (
-        
         <div
-        onClick={closeMenu}
-        className="fade-in fixed top-0 left-0 w-screen h-screen z-10 backdrop-filter backdrop-blur-sm" />
+          onClick={() => closeMenu()}
+          className="fade-in fixed top-0 left-0 w-screen h-screen z-10 backdrop-filter backdrop-blur-sm"
+        />
       )}
 
       <nav
@@ -55,7 +56,7 @@ export const Sidebar = () => {
           <IoSearchOutline size={20} className="absolute top-2 left-2" />
           <input
             type="text"
-            placeholder="Bucar"
+            placeholder="Buscar"
             className="w-full bg-gray-50 rounded pl-10 py-1 border-b-2 text-xl border-gray-200 focus:outline-none focus:border-blue-500"
           />
         </div>
@@ -63,7 +64,8 @@ export const Sidebar = () => {
         {/* menu */}
 
         <Link
-          href="/"
+          href="/profile"
+          onClick={() => closeMenu()}
           className="flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all"
         >
           <IoPersonOutline size={30} />
@@ -83,13 +85,12 @@ export const Sidebar = () => {
           <IoLogInOutline size={30} />
           <span className="ml-3 text-xl">Ingresar</span>
         </Link>
-        <Link
-          href="/"
-          className="flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all"
-        >
+
+        <button className="flex w-full items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all"
+                onClick={() => logout()}>
           <IoLogOutOutline size={30} />
           <span className="ml-3 text-xl">Salir</span>
-        </Link>
+        </button>
 
         {/* Line separator */}
         <div className="w-full h-px bg-gray-200 my-10" />

@@ -57,3 +57,44 @@ https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
 customizar los enlaces de url metadata 
 
 https://nextjs.org/docs/app/building-your-application/optimizing/metadata
+
+
+next auth 
+https://nextjs.org/learn/dashboard-app/adding-authentication
+
+npm install next-auth
+npm install next-auth@beta
+
+abrir git bach y ejecutar 
+
+openssl rand -base64 32
+
+esto entregara un numero copiar ese numero 
+y crear variable de entorno 
+
+dentro de src root de app crear archivo 
+auth.config.ts
+
+en este archivo redireccionar a nuestro login 
+import type { NextAuthConfig } from 'next-auth';
+ 
+export const authConfig : NextAuthConfig= {
+  pages: {
+    signIn: '/auth/login',
+  },
+}
+
+instalar zod npm i zod
+
+veremos dos formas de validacion desde el lado del cliente y del lado del servidor 
+
+comviene siempre solo ocupar las hojas del lado del cliente el componente padre intentar que siempre sea del lado del servidor 
+
+creamos modelos en prisma 
+
+hacemos migracion 
+
+ npx prisma migrate dev --name user-role
+
+
+ instalar  npm i bcryptjs
