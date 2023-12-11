@@ -1,25 +1,27 @@
-import type { Metadata } from 'next'
-import './globals.css'
-import{inter} from '@/config/fonts';
+import { inter } from "@/config/fonts";
+import type { Metadata } from "next";
 
-
+import "./globals.css";
+import { Provider } from "@/components";
 
 export const metadata: Metadata = {
   title: {
-    template: '%s - Teslo | Shop',
-    default: 'Home Teslo | Shop'
+    template: "%s - Teslo | Shop",
+    default: "Home Teslo | Shop",
   },
-  description: 'Una tienda virtual',
-}
+  description: "Una tienda virtual",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Provider>{children}</Provider>
+      </body>
     </html>
-  )
+  );
 }

@@ -98,3 +98,10 @@ hacemos migracion
 
 
  instalar  npm i bcryptjs
+
+
+ auntenticacion 
+
+ crear vistas ->
+ auth.config.ts -> action login.ts -> componets -> provider -> englobar app en el provider 
+ -> en la raiz de la app nextauth.d.ts

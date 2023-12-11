@@ -1,13 +1,21 @@
 import { authenticate } from "@/actions";
 import clsx from "clsx";
 import Link from "next/link";
+// import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { useFormState, useFormStatus } from "react-dom";
 import { IoInformationOutline } from "react-icons/io5";
 
 export const LoginForm = () => {
   const [state, dispatch] = useFormState(authenticate, undefined);
+  // const router = useRouter()
 
-  console.log({state});
+  useEffect(() => {
+    if(state === 'Success'){
+     window.location.replace('/')
+    }
+  },[state])
+  console.log(state);
 
   //   importante poner names en los input si no no los tomara la funcion
 
@@ -32,14 +40,14 @@ export const LoginForm = () => {
         aria-live="polite"
         aria-atomic="true"
       >
-        {state === "Invalid credentials." && (
+ 
           <div className="flex flex-row mb-2 ">
             <IoInformationOutline className="h-5 w-5 text-red-500" />
             <p className="text-sm text-red-500">
               Credenciales no son correctas
             </p>
           </div>
-        )}
+  
       </div>
 
       <LoginButton />

@@ -1,33 +1,37 @@
-'use server'
+"use server";
 
-import { signIn } from '@/auth.config';
-import { sleep } from '@/utils';
+import { signIn } from "@/auth.config";
 // signing viene de nuestro archivo de config
-import { AuthError } from 'next-auth';
+import { AuthError } from "next-auth";
 
- 
 // ...
- 
+
 export async function authenticate(
   prevState: string | undefined,
-  formData: FormData,
+  formData: FormData
 ) {
   try {
-
     // console.log({ formdata:Object.fromEntries(formData)});
 
     // await sleep(2)
-    
-    await signIn('credentials', formData);
+
+    await signIn("credentials", {
+      ...Object.fromEntries(formData),
+      redirect: false,
+    });
+
+    console.log("entro en el try de authenticated");
+
+    return "Success";
   } catch (error) {
+    console.log("entro en el catch de authenticated =>", { error });
+
     if (error instanceof AuthError) {
-
-
       switch (error.type) {
-        case 'CredentialsSignin':
-          return 'Invalid credentials.';
+        case "CredentialsSignin":
+          return "CredentialsSignin";
         default:
-          return 'Something went wrong.';
+          return "UnknowError";
       }
     }
     throw error;
