@@ -1,7 +1,7 @@
 "use client";
 
 import { QuantitySelector, SizeSelector } from "@/components";
-import { CartProduct, Product, Size } from "@/components/interfaces";
+import { CartProduct, Product, Size } from "@/interfaces";
 import { useCartStore } from "@/store";
 
 import { useState } from "react";

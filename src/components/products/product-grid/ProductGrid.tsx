@@ -1,6 +1,5 @@
-import { Product } from '@/components/interfaces'
+import { Product } from '@/interfaces'
 import { ProductGridItem } from './ProductGridItem'
-import Link from 'next/link'
 
 // defino un arrglo de productos
 interface Props {

@@ -1,4 +1,4 @@
-import { Size } from "@/components/interfaces";
+import { Size } from "@/interfaces";
 import clsx from "clsx";
 
 // defino la prop con su tipado esto recibira el componente
@@ -10,7 +10,6 @@ interface Props {
   onSizeChanged: (size: Size) => void;
 }
 
-import React from "react";
 
 // defino los parametros definidos en la intgerface
 // y esto recibira el componente en donde esten generados estos datos

@@ -105,3 +105,62 @@ hacemos migracion
  crear vistas ->
  auth.config.ts -> action login.ts -> componets -> provider -> englobar app en el provider 
  -> en la raiz de la app nextauth.d.ts
+
+https://react-hook-form.com/get-started
+ npm install react-hook-form
+
+
+
+
+
+ pasos para insercion de data nueva en prisma 
+
+ primero la migracion: 
+
+ crear Schema:
+
+ model Country {
+  id String @id
+  name String
+}
+
+
+realizar migracion: 
+
+npx prisma migrate dev --name country
+
+se crea la tabla en la bd 
+
+luego la insercion 
+
+importar la data del seed-countries en el archivo de seed-database 
+
+
+antes colocar el borrado al principio 
+
+  import { countries } from './seed-countries';
+
+   await prisma.country.deleteMany();
+
+await prisma.country.createMany({
+    data: countries
+  })
+
+  
+y realizar insercion corriendo el comando de npm run seed declarado en el 
+package json 
+
+para este error app-index.js:34 Warning: Extra attributes from the server: cz-shortcut-listen 
+
+tuve que colocar el compiler: ... en el archivo next.config.js hechar a andar la app y luego quitarlo bajar la app nuevamente y subirla 
+y el error en consola desaparecio 
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+    compiler: {
+        styledComponents: true
+    }
+}
+
+module.exports = nextConfig
+
