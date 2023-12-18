@@ -5,6 +5,7 @@ import type { Address, Country } from "@/interfaces";
 import { useAddressStore } from "@/store";
 import clsx from "clsx";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
@@ -32,6 +33,8 @@ interface Props {
 // llamo a los valores de bd en el componente padre , los paso como props y digo que los valores por defecto ahora seran 
 // los que vengan de bd
 export const AddressForm = ({ countries, userStoreAddress = {} }: Props) => {
+  const router = useRouter();
+ 
   // llamamos a este use form de react hook form
   const {
     handleSubmit,
@@ -79,15 +82,17 @@ export const AddressForm = ({ countries, userStoreAddress = {} }: Props) => {
     if (rememberAddress) {
 
       console.log('rest ->', restAddress)
-      //todo : server action
+   
      await setUserAddress(restAddress, session!.user.id)
     } else {
-      //todo : server action
+   
     const deleteAdress = await deleteUserAddres(session!.user.id)
     console.log(deleteAdress.message);
     
       // tarea
     }
+
+    router.push('/checkout');
   };
 
   // la forma para persistir la info del form es:
