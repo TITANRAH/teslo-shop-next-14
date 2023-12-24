@@ -176,4 +176,9 @@ npm install @paypal/react-paypal-js
 
 poner en providers y envolver el session
 
+llamar a boton de paypayl
 
+#Paypal
+#https://developer.paypal.com/dashboard
+#sb-j47lfs28900232@personal.example.com
+#ABC123456

@@ -70,6 +70,9 @@ export const LoginForm = () => {
 };
 
 function LoginButton() {
+
+  console.log('entro al login');
+  
   const { pending } = useFormStatus();
 
   return (
