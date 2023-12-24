@@ -164,3 +164,16 @@ const nextConfig = {
 
 module.exports = nextConfig
 
+
+paypal crear sandbox app 
+
+aca vemos el comproador 
+
+https://developer.paypal.com/dashboard/accounts
+
+INSTALAR
+npm install @paypal/react-paypal-js
+
+poner en providers y envolver el session
+
+

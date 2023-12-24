@@ -16,6 +16,8 @@ export const PlaceOrder = () => {
 
   const address = useAddressStore((state) => state.address);
 
+ 
+
   const { itemsInCart, subTotal, tax, total } = useCartStore((state) =>
     state.getSummaryInformation()
   );
@@ -36,11 +38,13 @@ export const PlaceOrder = () => {
       size: p.size,
     }));
 
-    console.log({ address, productToOrders });
+    console.log({ address });
+
+   
 
     // todo server
    const resp = await placeOrder(productToOrders, address)
-    // console.log(resp);
+    console.log('resp', resp);
 
    if(!resp.ok){
      setIsPlaceOrder(false);

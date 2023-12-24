@@ -14,6 +14,9 @@ export const placeOrder = async (
   productIds: ProductToOrder[],
   address: Address
 ) => {
+
+  console.log('addrss desde placeorder', address);
+  
   // es preferible tomar el id del lado del servidor
   const session = await auth();
   const userId = session?.user.id;

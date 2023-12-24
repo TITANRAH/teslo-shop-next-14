@@ -122,6 +122,8 @@ model Order {
   userId       String
   OrderItem    OrderItem[]
   OrderAddress OrderAddress?
+  // id del proveedor de terceros de pago
+  transactionId String?
 }
 
 model OrderItem {
