@@ -182,3 +182,8 @@ llamar a boton de paypayl
 #https://developer.paypal.com/dashboard
 #sb-j47lfs28900232@personal.example.com
 #ABC123456
+
+
+tipado stricto 
+copiar respúesta de postman
+control shift p paste jsonn a code dar nombre y pegara 
