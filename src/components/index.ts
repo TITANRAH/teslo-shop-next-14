@@ -14,4 +14,5 @@ export * from './ui/title/Title'
 export * from './ui/top-menu/TopMenu'
 export * from './paypal/PayPalButton';
 export * from './orders/OrderStatus';
+export * from './product/product-image/ProductImage'
 

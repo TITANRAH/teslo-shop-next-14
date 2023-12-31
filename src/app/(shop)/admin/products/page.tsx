@@ -1,7 +1,7 @@
 // https://tailwindcomponents.com/component/hoverable-table
 export const revalidate = 0;
 import { getPaginatedOrders, getPaginatedProductsWithImages } from "@/actions";
-import { Title } from "@/components";
+import { ProductImage, Title } from "@/components";
 import { currencyFormat } from "@/utils";
 import Image from "next/image";
 
@@ -30,7 +30,7 @@ export default async function OrderPage({ searchParams }: Props) {
       <Title title="Mantenimiento de productos" />
 
       <div className="flex justify-end mb-5">
-        <Link href="admin/product/new" className="btn-primary">Nuevo Producto</Link>
+        <Link href="/admin/product/new" className="btn-primary">Nuevo Producto</Link>
       </div>
 
       <div className="mb-10">
@@ -85,8 +85,8 @@ export default async function OrderPage({ searchParams }: Props) {
                   <Link
                   href={`/product/${product.slug}`}
                   >
-                 <Image
-                    src={`/products/${product.ProductImage[0].url}`} 
+                 <ProductImage
+                    src={product.ProductImage[0]?.url} 
                     alt={product.title}
                     width={80}
                     height={80}
