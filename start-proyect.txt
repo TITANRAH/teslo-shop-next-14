@@ -187,3 +187,13 @@ llamar a boton de paypayl
 tipado stricto 
 copiar respúesta de postman
 control shift p paste jsonn a code dar nombre y pegara 
+
+
+
+una vez en vercel ya creada la bd
+
+en mi proyecto cambiar la cadena de conexion en .env 
+
+y ejecutar npx prisma migrate deploy
+
+luego el npm run seed 
