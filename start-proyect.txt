@@ -197,3 +197,17 @@ en mi proyecto cambiar la cadena de conexion en .env
 y ejecutar npx prisma migrate deploy
 
 luego el npm run seed 
+
+en vercel para desplegar el front importo el repo del proyecto 
+
+luego en variables de entorno e configurar proyecto puedo llegar y copiar el contenido del archivo .env y pegarlo 
+
+tomara automaticamente todas las variables
+
+no necesitare las variables para generar docker 
+
+POSTGRES_USER=postgres
+POSTGRES_DB=TESLO
+POSTGRES_PASSWORD=123456 
+
+elinar del proyecto de vercel
