@@ -2,6 +2,8 @@
 
 import bcryptjs from "bcryptjs";
 
+import prisma from "@/lib/prisma";
+
 
 export const registerUser = async (
   name: string,
@@ -9,7 +11,7 @@ export const registerUser = async (
   password: string
 ) => {
   try {
-    const user = await prisma?.user.create({
+    const user = await prisma.user.create({
       data: {
         name: name,
         email: email.toLowerCase(),
