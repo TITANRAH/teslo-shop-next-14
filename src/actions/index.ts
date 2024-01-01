@@ -18,3 +18,4 @@ export * from './payments/paypal-check-payments';
 export * from './order/get-paginated-orders';
 export * from './users/get-paginated-users';
 export * from './users/change-user-role';
+export * from './products/delete-product-image';

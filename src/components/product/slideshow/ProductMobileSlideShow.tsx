@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import "./slideshow.css";
+import { ProductImage } from "@/components";
 
 interface Props {
   images: string[];
@@ -33,8 +34,8 @@ export const ProductMobileSlideShow = ({ images, title, className }: Props) => {
         {images.map((image) => (
           <SwiperSlide key={image}>
             {/* la imagen viene de products */}
-            <Image
-              src={`/products/${image}`}
+            <ProductImage
+              src={image}
               alt={title}
               width={600}
               height={500}
